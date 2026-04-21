@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buổi 1 – Câu hỏi ôn tập DevOps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #2d3748;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    header h1 { font-size: 2rem; margin-bottom: 0.4rem; }
+    header p  { font-size: 1rem; opacity: 0.85; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1rem 3rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 1.8rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #ebf8ff;
+      border-left: 5px solid #3182ce;
+      padding: 1rem 1.4rem;
+    }
+
+    .card-header h2 {
+      font-size: 1.1rem;
+      color: #2b6cb0;
+    }
+
+    .card-body {
+      padding: 1.2rem 1.4rem;
+    }
+
+    .card-body p,
+    .card-body li {
+      margin-bottom: 0.6rem;
+    }
+
+    .card-body ul,
+    .card-body ol {
+      padding-left: 1.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 0.55rem 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      background: #edf2f7;
+      font-weight: 600;
+    }
+
+    pre {
+      background: #1a202c;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      white-space: pre;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #bee3f8;
+      color: #2b6cb0;
+      border-radius: 999px;
+      padding: 0.15rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-right: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #718096;
+      padding-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Buổi 1 – Câu hỏi ôn tập</h1>
+  <p>Networking &amp; Web Infrastructure cơ bản</p>
+</header>
+
+<main>
+
+  <!-- Câu 1 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 1. Private IP và Public IP khác nhau như thế nào?</h2>
+    </div>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr><th></th><th>Private IP</th><th>Public IP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Phạm vi</strong></td><td>Mạng nội bộ (LAN)</td><td>Internet toàn cầu</td></tr>
+          <tr><td><strong>Ai cấp phát</strong></td><td>Router/DHCP nội bộ</td><td>ISP (nhà mạng)</td></tr>
+          <tr><td><strong>Truy cập từ Internet</strong></td><td>Không (cần NAT)</td><td>Có</td></tr>
+          <tr><td><strong>Ví dụ dải địa chỉ</strong></td><td>192.168.x.x, 10.x.x.x</td><td>Ngoài các dải private</td></tr>
+          <tr><td><strong>Chi phí</strong></td><td>Miễn phí trong LAN</td><td>Thuê/mua từ ISP</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:0.8rem"><strong>Tóm lại:</strong> Private IP là địa chỉ nội bộ; Public IP là địa chỉ công khai để kết nối Internet.</p>
+    </div>
+  </div>
+
+  <!-- Câu 2 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 2. DNS có vai trò gì trong việc truy cập website?</h2>
+    </div>
+    <div class="card-body">
+      <p>DNS (Domain Name System) đóng vai trò như một <strong>"cuốn danh bạ" của Internet</strong>:</p>
+      <ol>
+        <li>Bạn gõ <code>https://google.com</code> vào trình duyệt.</li>
+        <li>Trình duyệt gửi truy vấn tới <strong>DNS Resolver</strong>.</li>
+        <li>DNS Resolver trả về địa chỉ IP tương ứng (ví dụ <code>142.250.x.x</code>).</li>
+        <li>Trình duyệt dùng IP đó để kết nối tới máy chủ web và tải nội dung.</li>
+      </ol>
+      <p><strong>Không có DNS</strong>, người dùng phải nhớ địa chỉ IP thay vì tên miền dễ nhớ.</p>
+    </div>
+  </div>
+
+  <!-- Câu 3 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 3. Port 80 và Port 443 khác nhau chỗ nào?</h2>
+    </div>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr><th></th><th>Port 80</th><th>Port 443</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Giao thức</strong></td><td>HTTP</td><td>HTTPS</td></tr>
+          <tr><td><strong>Mã hóa</strong></td><td>Không – văn bản thuần</td><td>Có – TLS/SSL</td></tr>
+          <tr><td><strong>Bảo mật</strong></td><td>Dễ bị nghe lén</td><td>An toàn hơn</td></tr>
+          <tr><td><strong>Trình duyệt hiển thị</strong></td><td>"Not Secure"</td><td>Ổ khóa 🔒</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Câu 4 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 4. Ngrok giải quyết vấn đề gì?</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Vấn đề:</strong> Máy tính cá nhân nằm sau NAT/Firewall, không có Public IP cố định → người ngoài Internet không thể truy cập <code>localhost</code> của bạn.</p>
+      <p><strong>Ngrok giải quyết bằng cách:</strong></p>
+      <ol>
+        <li>Tạo một <strong>tunnel</strong> bảo mật từ máy bạn đến server Ngrok trên Internet.</li>
+        <li>Cấp cho bạn một <strong>URL công khai</strong> (ví dụ <code>https://abc123.ngrok.io</code>).</li>
+        <li>Mọi request tới URL đó được Ngrok chuyển tiếp về <code>localhost</code>.</li>
+      </ol>
+      <p><strong>Ứng dụng:</strong> Demo app local, test webhook (GitHub, Stripe…), phát triển app mobile cần HTTPS.</p>
+    </div>
+  </div>
+
+  <!-- Câu 5 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 5. Nginx với vai trò Reverse Proxy hoạt động ra sao?</h2>
+    </div>
+    <div class="card-body">
+      <p>Nginx đứng trước các server ứng dụng, nhận request từ client rồi chuyển tiếp về backend:</p>
+<pre>
+Client (Browser)
+      │  request https://example.com
+      ▼
+  [ Nginx – Reverse Proxy ]
+      │  forward tới backend
+      ▼
+  [ App Server: Node.js / Python... ]
+      │  response
+      ▼
+  [ Nginx ] ──► trả về Client
+</pre>
+      <p><strong>Lợi ích:</strong></p>
+      <ul>
+        <li><span class="tag">Load Balancing</span> Phân phối traffic cho nhiều backend.</li>
+        <li><span class="tag">SSL Termination</span> Nginx xử lý HTTPS, backend chỉ dùng HTTP nội bộ.</li>
+        <li><span class="tag">Caching</span> Giảm tải cho backend.</li>
+        <li><span class="tag">Bảo mật</span> Che giấu địa chỉ thực của server ứng dụng.</li>
+        <li><span class="tag">Gzip</span> Nén dữ liệu trước khi gửi về client.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Câu 6 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Câu 6. Tại sao website ngày nay cần HTTPS thay vì HTTP?</h2>
+    </div>
+    <div class="card-body">
+      <ol>
+        <li><strong>Bảo mật dữ liệu:</strong> HTTPS mã hóa toàn bộ dữ liệu (mật khẩu, thẻ ngân hàng…), chống nghe lén và tấn công Man-in-the-Middle.</li>
+        <li><strong>Xác thực danh tính:</strong> Chứng chỉ TLS/SSL xác nhận đây đúng là website bạn muốn truy cập, chống phishing.</li>
+        <li><strong>SEO và uy tín:</strong> Google ưu tiên xếp hạng trang HTTPS; trình duyệt cảnh báo "Not Secure" với HTTP.</li>
+        <li><strong>HTTP/2 và hiệu năng:</strong> Hầu hết trình duyệt chỉ hỗ trợ HTTP/2 (nhanh hơn) qua HTTPS.</li>
+        <li><strong>API hiện đại:</strong> Geolocation, Service Worker, camera… chỉ hoạt động trên HTTPS.</li>
+        <li><strong>Niềm tin người dùng:</strong> Ổ khóa xanh 🔒 tạo sự tin tưởng khi người dùng nhập thông tin cá nhân.</li>
+      </ol>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Buổi 1 – DevOps Study &copy; 2024</p>
+</footer>
+
+</body>
+</html>
